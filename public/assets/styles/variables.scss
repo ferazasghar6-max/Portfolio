@@ -1,0 +1,79 @@
+
+
+$green: #00bc8f;
+
+span {
+  color: $green;
+}
+
+p {
+  font-size: 24px;
+}
+
+h1 {
+  font-size: 150px;
+}
+
+h2 {
+  font-size: clamp(60px, 8dvw, 120px);
+
+  &:hover{
+    color: $green;
+  }
+}
+
+h3{
+  font-size: 48px;
+}
+
+.button-one {
+  width: 250px;
+  border: 4px solid white;
+  background-color: transparent;
+  padding: 10px 24px;
+  font-size: 24px;
+  transition: width 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    width: 300px;
+    font-weight: bold;
+  }
+}
+
+.button-two{
+  width: 200px;
+  border: 4px solid black;
+  background-color: transparent;
+  padding: 10px 24px;
+  font-size: 24px;
+  transition: width 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    width: 250px;
+    font-weight: bold;
+  }
+}
+
+.frame {
+  position: absolute;
+  background: transparent;
+  width: 100%;
+  height: inherit;
+  border: 3.5px solid black;
+  z-index: 10;
+  top: 25px;
+  left: 25px;
+}
+
+.frame-right {
+  position: absolute;
+  background: transparent;
+  width: 100%;
+  height: inherit;
+  border: 3.5px solid black;
+  z-index: 10;
+  top: 25px;
+  left: -25px;
+}

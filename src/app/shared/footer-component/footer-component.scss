@@ -1,0 +1,35 @@
+@use '../../../../public/assets/styles/all-styles.scss' as all;
+
+
+section {
+  width: 100%;
+  height: fit-content;
+  padding: 0px 48px;
+  color: white;
+  background-color: black;
+
+  #logo-icons {
+    width: 100%;
+    @include all.flexi($jc: space-between, $ai: center);
+    background: transparent;
+  }
+
+  #legal-notice {
+    width: 100%;
+    @include all.flexi($jc: flex-end);
+    padding-bottom: 16px;
+
+    a {
+      font-size: 20px;
+    }
+  }
+
+  #social-media {
+    width: 200px;
+    @include all.flexi($jc: space-around);    
+  }
+
+  .logo {
+    filter: invert(1);
+  }
+}

@@ -1,0 +1,38 @@
+@use '../../../../public/assets/styles/all-styles.scss' as all;
+
+nav {
+  width: 100%;
+  height: fit-content;
+  padding: 0px 48px;
+  font-weight: bold;
+  @include all.flexi();
+
+  > div {
+    width: 100%;
+    height: 15dvh;
+    @include all.flexi($ai: center, $jc: flex-start);
+  }
+
+  #language {
+    @include all.flexi($jc: flex-end, $gap: 10px);
+
+    > p {
+      font-size: 20px;
+      padding: 4px;
+
+      &:hover {
+        border: 2px solid all.$green;
+        cursor: pointer;
+      }
+    }
+  }
+
+  #burger-menu{
+    @include all.flexi($ai: center);   
+    margin-left: 48px;
+
+    &:hover {
+        cursor: pointer;
+      }
+  }
+}

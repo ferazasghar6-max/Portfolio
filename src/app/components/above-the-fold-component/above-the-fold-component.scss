@@ -1,0 +1,84 @@
+@use '../../../../public/assets/styles/all-styles.scss' as all;
+
+section {
+  width: 100%;
+  padding: 0px 48px;
+  @include all.flexi($fd: column, $ai: center, $jc: center);
+
+  #head-line {
+    width: 80%;
+    text-align: center;
+  }
+
+  #name {
+    @include all.flexi($ai: center, $gap: 16px);
+
+    #underline {
+      width: clamp(100px, 50vw, 500px);
+      height: 3px;
+    }
+
+    > h3 {
+      font-size: 48px;
+      color: all.$green;
+    }
+  }
+
+  #mail-scroll {
+    width: 100%;
+    height: auto;
+    padding: 48px 0px;
+    @include all.flexi($ai: center, $jc: space-between);
+
+    #mail {
+      left: -100px;
+
+      > p {
+        transform: rotate(-90deg);
+      }
+    }
+
+    > div {
+      font-size: 20px;
+      text-align: center;
+    }
+  }
+}
+
+// #region mediaquerrys
+@include all.notebook {
+  h1 {
+    font-size: 120px;
+  }
+
+  h2{
+    font-size: 24px;
+  }
+}
+
+@include all.tablet{
+    h1 {
+    font-size: 100px;
+  }
+
+  h2{
+    font-size: 20px;
+  }
+
+  // section{
+  //   padding: 0px 36px;
+  // }
+}
+
+@include all.mobile{
+    h1 {
+    font-size: 60px;
+  }
+
+  h2{
+    font-size: 20px;
+  }
+}
+
+
+// #endregion

@@ -2,6 +2,13 @@
 
 $green: #00bc8f;
 
+.padding{
+  padding-bottom: 0px;
+  padding-top: 0px;
+  padding-left: clamp(12px, 5%, 48px);
+  padding-right: clamp(12px, 5%, 48px); 
+} 
+
 span {
   color: $green;
 }

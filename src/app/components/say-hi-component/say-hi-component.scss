@@ -65,11 +65,20 @@ section {
         }
       }
 
+      #subline {
+        padding-bottom: 48px;
+      }
+
       .form-container {
         width: 600px;
-        height: 500px;
+        height: fit-content;
         padding-bottom: 16px;
         @include all.flexi($fd: column, $gap: 16px);
+
+        .validation {
+          color: red;
+          font-size: 16px;
+        }
       }
 
       .textarea {
@@ -88,6 +97,7 @@ section {
         &:focus {
           border: 2px solid white;
           outline: none;
+          background-color: black;
         }
       }
 

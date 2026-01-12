@@ -12,18 +12,21 @@
     <div id="input-area">
       <h3>Want to discuss a new project?</h3>
       <p>Say hello! let`s discuss your ideas and make it happen</p>
-      <form class="form-container">
+      <form (ngSubmit)="onSubmit()" class="form-container">
         <div>
-          <label class="label">Your name</label>
-          <input class="input" type="text" placeholder="Your name" required />
+          <label for="name" class="label">Your name</label>
+          
+          <input [{ngModel}]="contactData.name" id="name" class="input" type="text" placeholder="Your name" required />
         </div>
         <div>
-          <label class="label">Your email</label>
-          <input class="input" type="email" placeholder="Your email" />
+          <label for="email" class="label">Your email</label>
+          
+          <input [{ngModel}]="contactData.email" id="email" class="input" type="email" placeholder="Your email" />
         </div>
         <div>
-          <label class="label">Your message</label>
-          <textarea class="textarea" placeholder="Your message"></textarea>
+          <label for="message" class="label">Your message</label>
+          
+          <textarea [{ngModel}]="contactData.message" id="message" class="textarea" placeholder="Your message"></textarea>
         </div>
         <div id="check-box">
           <input type="checkbox"/>

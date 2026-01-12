@@ -8,8 +8,12 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
-
-  openDialog(){
-    
+  toggleDialog() {
+    const dialogRef = document.getElementById('dialog-menu') as HTMLDialogElement;
+    if(dialogRef.open){
+      dialogRef.close();
+    } else{
+      dialogRef.show();
+    }
   }
 }

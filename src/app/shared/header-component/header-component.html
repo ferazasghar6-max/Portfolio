@@ -9,20 +9,22 @@
   </div>
 
   <section id="burger-menu">
-    <img src="assets/icons/burger-menu.png" alt="Burger Menü Icon" />
+    <img (click)="toggleDialog()" src="assets/icons/burger-menu.png" alt="Burger Menü Icon" />
   </section>
 </nav>
 
-  <dialog>
+  <dialog id="dialog-menu">
+    <div id="dialog-content">
     <ul>
       <li>
-        <a class="nav-ref" href="">About me</a>
+        <a (click)="toggleDialog()" class="nav-ref" href="#about-me-ref">About me</a>
       </li>
       <li>
-        <a class="nav-ref" href="">My skills</a>
+        <a (click)="toggleDialog()" class="nav-ref" href="#my-skills-ref">My skills</a>
       </li>
       <li>
-        <a class="nav-ref" href="">Portfolio</a>
+        <a (click)="toggleDialog()" class="nav-ref" href="#portfolio-ref">Portfolio</a>
       </li>
     </ul>
+    </div>
   </dialog>

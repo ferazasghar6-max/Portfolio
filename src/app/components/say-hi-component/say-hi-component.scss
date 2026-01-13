@@ -30,7 +30,9 @@ section {
     margin: 24px 0px;
   }
 
-  span {
+  a {
+    color: all.$green;
+
     &:hover {
       box-sizing: border-box;
       filter: brightness(1.2);
@@ -38,11 +40,11 @@ section {
     }
   }
 
-  #say-hi {
+  #say-hi-wraper {
     width: 100%;
     @include all.flexi($fd: column);
 
-    > img {
+    > a {
       position: absolute;
       z-index: 10;
       right: 0;

@@ -21,7 +21,7 @@ section {
     @include all.flexi($jc: space-around);
 
 
-    #my-skills {
+    #my-skills-headline {
       height: fit-content;
       width: clamp(250px, 50dvw, 600px);
       position: absolute;
@@ -60,6 +60,7 @@ section {
 
       #contact-me {
         font-weight: lighter;
+        color: all.$green;
         
         &:hover {
           cursor: pointer;

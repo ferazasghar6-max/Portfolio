@@ -4,6 +4,7 @@ section {
   width: 100%;
   padding: 0px 48px;
   @include all.flexi($fd: column, $ai: center, $jc: center);
+  
 
   #head-line {
     width: 80%;
@@ -29,11 +30,13 @@ section {
     height: auto;
     padding: 48px 0px;
     @include all.flexi($ai: center, $jc: space-between);
+    
 
     #mail {
       left: -100px;
 
-      > p {
+      > a {
+        display: inline-block;
         transform: rotate(-90deg);
       }
     }

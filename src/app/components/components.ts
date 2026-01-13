@@ -11,14 +11,12 @@ import { FooterComponent } from '../shared/footer-component/footer-component';
 @Component({
   selector: 'app-components',
   imports: [
-    HeaderComponent,
     AboveTheFoldComponent,
     AboutMeComponent,
     MySkillsComponent,
     PortfolioComponent,
     ReferenceComponent,
     SayHiComponent,
-    FooterComponent
   ],
   templateUrl: './components.html',
   styleUrl: './components.scss',

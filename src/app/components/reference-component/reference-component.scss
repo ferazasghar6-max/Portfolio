@@ -3,7 +3,7 @@
 section {
   width: 100%;
   height: fit-content;
-  padding: 24px 48px;
+  // padding: 24px 48px;
   text-align: center;
   overflow-wrap: break-word;
   @include all.flexi($ai: center, $fd: column);
@@ -14,6 +14,7 @@ section {
 
     > h2 {
       margin-bottom: 36px;
+      font-size: clamp(45px, 8dvw, 120px);
     }
   }
 
@@ -55,3 +56,23 @@ section {
     }
   }
 }
+
+//#region Mediaquerries
+
+@include all.notebook {
+}
+
+@include all.tablet {
+  section {
+    #references {
+      flex-direction: column;
+    }
+
+    .reference {
+      width: clamp(200px, 95%, 600px);
+    }
+  }
+}
+
+
+//#endregion

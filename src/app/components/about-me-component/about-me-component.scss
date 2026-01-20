@@ -1,12 +1,12 @@
 @use '../../../../public/assets/styles/all-styles.scss' as all;
 
 section {
-  height: 90dvh;
+  height: fit-content;
   width: 100%;
-  padding: 48px;
+  box-sizing: border-box;
 
   > h2 {
-    width: fit-content;
+    width: 100%;
     padding-bottom: 48px;
 
     &:hover {
@@ -19,7 +19,7 @@ section {
 
     > div {
       width: 50%;
-      height: 60dvh;
+      min-height: 60dvh;
     }
 
     #about-me {
@@ -45,11 +45,59 @@ section {
     #profile-photo {
       position: relative;
 
+      > img {
+        width: 100%;
+        min-height: 60dvh;
+        object-fit: cover;
+        object-position: center;
+      }
+
       &:hover {
-        .frame {
+        .frame-min-height {
           display: block;
         }
       }
     }
   }
 }
+
+//#region Mediaquerries
+
+@include all.notebook {
+  h2 {
+    text-align: center;
+  }
+
+  #content-wraper {
+    flex-direction: column;
+  }
+
+  #about-me {
+    width: 100%;
+  }
+
+  #profile-photo {
+    width: 100%;
+
+    > img {
+      height: 20px;
+    }
+  }
+}
+
+@include all.tablet {
+  h2 {
+    text-align: left;
+  }
+
+  #content-wraper {
+    align-items: flex-start;
+  }
+
+  .frame-min-height {
+    top: 15px;
+    left: 15px;
+  }
+}
+
+//#endregion

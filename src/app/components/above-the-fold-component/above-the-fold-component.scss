@@ -2,9 +2,7 @@
 
 section {
   width: 100%;
-  padding: 0px 48px;
   @include all.flexi($fd: column, $ai: center, $jc: center);
-  
 
   #head-line {
     width: 80%;
@@ -15,7 +13,7 @@ section {
     @include all.flexi($ai: center, $gap: 16px);
 
     #underline {
-      width: clamp(100px, 50vw, 500px);
+      width: clamp(10px, 39vw, 500px);
       height: 3px;
     }
 
@@ -30,10 +28,14 @@ section {
     height: auto;
     padding: 48px 0px;
     @include all.flexi($ai: center, $jc: space-between);
-    
+
+    #arrow {
+      overflow: hidden;
+    }
 
     #mail {
       left: -100px;
+      width: 50px;
 
       > a {
         display: inline-block;
@@ -54,34 +56,30 @@ section {
     font-size: 120px;
   }
 
-  h2{
-    font-size: 24px;
+    section #name > h3 {
+    font-size: 36px;
   }
 }
 
-@include all.tablet{
-    h1 {
+@include all.tablet {
+  h1 {
     font-size: 100px;
+    padding-top: 48px;
   }
 
-  h2{
-    font-size: 20px;
-  }
-
-  // section{
-  //   padding: 0px 36px;
-  // }
-}
-
-@include all.mobile{
-    h1 {
-    font-size: 60px;
-  }
-
-  h2{
-    font-size: 20px;
+   section #name > h3 {
+    font-size: 28px;
   }
 }
 
+@include all.mobile {
+  h1 {
+    font-size: 56px;
+  }
+
+  section #name > h3 {
+    font-size: 20px;
+  }
+}
 
 // #endregion

@@ -3,6 +3,7 @@
 section {
   width: 100%;
   @include all.flexi($fd: column, $ai: center, $jc: center);
+  max-width: 1440px;
 
   #head-line {
     width: 80%;

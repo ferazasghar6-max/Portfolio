@@ -1,32 +1,34 @@
+<main class="background">
+  <div class="max-width">
+    <nav class="padding">
+      <div>
+        <img src="assets/img/logo.png" alt="Logo" />
+      </div>
 
-<nav class="padding">
-  <div>
-    <img src="assets/img/logo.png" alt="Logo" />
+      <div id="language">
+        <button>DE</button>
+        <button>EN</button>
+      </div>
+
+      <section id="burger-menu">
+        <img (click)="toggleDialog()" src="assets/icons/burger-menu.png" alt="Burger Menü Icon" />
+      </section>
+    </nav>
+
+    <dialog id="dialog-menu">
+      <div id="dialog-content">
+        <ul>
+          <li>
+            <a (click)="toggleDialog()" href="#about-me">About me</a>
+          </li>
+          <li>
+            <a (click)="toggleDialog()" href="#my-skills">My skills</a>
+          </li>
+          <li>
+            <a (click)="toggleDialog()" href="#portfolio">Portfolio</a>
+          </li>
+        </ul>
+      </div>
+    </dialog>
   </div>
-
-  <div id="language">
-    <p>DE</p>
-    <p>EN</p>
-  </div>
-
-  <section id="burger-menu">
-    <img (click)="toggleDialog()" src="assets/icons/burger-menu.png" alt="Burger Menü Icon" />
-  </section>
-</nav>
-
-  <dialog id="dialog-menu">
-    <div id="dialog-content">
-    <ul>
-      <li>
-        <a (click)="toggleDialog()" href="#about-me">About me</a>
-      </li>
-      <li>
-        <a (click)="toggleDialog()" href="#my-skills">My skills</a>
-      </li>
-      <li>
-        <a (click)="toggleDialog()" href="#portfolio">Portfolio</a>
-      </li>
-    </ul>
-    </div>
-  </dialog>
-
+</main>

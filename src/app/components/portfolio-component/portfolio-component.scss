@@ -5,6 +5,7 @@ section {
   height: auto;
   background: inherit;
   gap: 48px;
+  max-width: 1440px;
 
   .build-with {
     color: all.$green;
@@ -29,7 +30,7 @@ section {
     display: none;
 
     > img {
-      left: 25px;
+      left: 35px;
     }
   }
 
@@ -52,7 +53,7 @@ section {
       width: 50%;
       height: clamp(100px, 40dvh, 450px);
       background-color: transparent;
-      // @include all.flexi($jc: center);
+      // aspect-ratio: 1 / 1;
       display: flex;
       justify-content: center;
 
@@ -85,7 +86,7 @@ section {
     display: none;
 
     > img {
-      left: -25px;
+      left: -35px;
     }
   }
 
@@ -147,6 +148,11 @@ section {
   }
 }
 
+//#region Mediaquerries
+
+@mixin tablet {
+}
+
 @include all.notebook {
   section > .left-content {
     flex-direction: column;
@@ -155,10 +161,6 @@ section {
   section > .left-content > div {
     width: 90%;
   }
-  .frame {
-    top: 5px;
-    left: 5px;
-  }
 
   section > .right-content {
     flex-direction: column;
@@ -166,10 +168,6 @@ section {
   }
   section > .right-content > div {
     width: 90%;
-  }
-  .frame-right {
-    top: 5px;
-    left: -5px;
   }
 }
 
@@ -185,4 +183,16 @@ section {
       margin-top: 60px;
     }
   }
+
+  .frame {
+    top: 10px;
+    left: 10px;
+  }
+
+  .frame-right {
+    top: 10px;
+    left: -10px;
+  }
 }
+
+//#endregion

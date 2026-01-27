@@ -3,6 +3,7 @@
 section {
   width: 100%;
   height: auto;
+  max-width: 1440px;
 
   > div {
     width: 100%;
@@ -29,14 +30,13 @@ section {
     }
 
     .skill-icon {
-      width: clamp(80px, 8vw, 100px);
+      width: clamp(85px, 9vw, 120px);
       height: fit-content;
-      @include all.flexi($ai: center, $fd: column);
+      @include all.flexi($ai: center, $fd: column, $jc: center);
       text-align: center;
       margin: clamp(8px, 4vw, 80px);
-
       perspective: 600px;
-      overflow: hidden;
+      // overflow: hidden;
 
       &:hover {
         color: all.$green;
@@ -48,6 +48,7 @@ section {
       }
 
       > p {
+        z-index: 10;
         margin-top: 16px;
         font-weight: bold;
         font-size: clamp(16px, 2.2vw, 24px);
@@ -66,10 +67,10 @@ section {
       }
 
       #education-wraper {
+        @include all.flexi($jc: center, $ai: center);
         perspective: 600px;
         overflow: hidden;
         width: clamp(80px, 8vw, 100px);
-        // height: clamp(30px, 8vw, 100px);
 
         > img {
           width: clamp(40px, 8vw, 100px);
@@ -83,8 +84,8 @@ section {
         font-size: clamp(16px, 2.2vw, 24px);
 
         &:hover {
-          cursor: pointer;
-          font-weight: bold;
+          filter: brightness(1);
+          text-shadow: 0 0 0.8px currentColor;
           text-decoration: underline;
         }
       }

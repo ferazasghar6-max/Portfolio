@@ -4,6 +4,11 @@ section {
   height: fit-content;
   width: 100%;
   box-sizing: border-box;
+  max-width: 1440px;
+
+  #content-wrapper{
+    height: 400px;
+  }
 
   > h2 {
     width: 100%;
@@ -19,7 +24,7 @@ section {
 
     > div {
       width: 50%;
-      min-height: 60dvh;
+      height: inherit;
     }
 
     #about-me {
@@ -44,20 +49,25 @@ section {
 
     #profile-photo {
       position: relative;
+      height: 400px;
 
       > img {
         width: 100%;
-        min-height: 60dvh;
-        object-fit: cover;
-        object-position: center;
+        height: 100%;
+        object-fit: contain;
+        background-color: orange;
       }
 
       &:hover {
         .frame-min-height {
           display: block;
+          height: inherit;
+          position: absolute;
         }
       }
     }
+
+
   }
 }
 

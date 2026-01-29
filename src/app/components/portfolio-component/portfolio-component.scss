@@ -56,6 +56,7 @@ section {
       position: absolute;
       display: none;
       z-index: 1;
+      // Giuliano
       // right: 15-25px wegen frame + 25-70px wegen dem bild
       // right: 40-95px
       // right: clamp(-45px, 6vw, -95px);
@@ -71,6 +72,7 @@ section {
     border: 4px solid black;
     display: none;
     // pointer-events: none;
+    // Giuliano - Positionierung meines Frames
     transform: translate(clamp(15px, 2.5vw, 25px), clamp(15px, 2.5vw, 25px));
   }
 

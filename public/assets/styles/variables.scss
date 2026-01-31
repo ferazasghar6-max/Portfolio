@@ -226,25 +226,4 @@ h3 {
   left: 25px;
 }
 
-.frame {
-  position: absolute;
-  background: transparent;
-  width: 100%;
-  height: inherit;
-  border: 3.5px solid black;
-  z-index: 10;
-  top: 25px;
-  left: 25px;
-}
-
-.frame-right {
-  position: absolute;
-  background: transparent;
-  width: 100%;
-  height: inherit;
-  border: 3.5px solid black;
-  z-index: 10;
-  top: 25px;
-  left: -25px;
-}
 //#endregion

@@ -1,1 +1,48 @@
-// @use '../../../../public/assets/styles/all-styles.scss' as all;
+@use '../../../../public/assets/styles/all-styles.scss' as all;
+
+section {
+  width: 100%;
+  height: fit-content;
+}
+
+* {
+  background-color: #fffcf3;
+}
+
+h1 {
+  font-size: 48px;
+  color: all.$green;
+  padding-bottom: 16px;
+}
+
+h2 {
+  font-size: 36px;
+  padding-bottom: 16px;
+}
+
+h3 {
+  font-size: 24px;
+  padding-bottom: 16px;
+}
+
+h4 {
+  font-size: 20px;
+  padding-bottom: 16px;
+}
+
+p {
+  padding-bottom: 24px;
+}
+
+.routerLink {
+    display: inline-block;
+  color: all.$green;
+  font-size: 20px;
+  padding-bottom: 24px;
+
+  &:hover {
+    filter: brightness(1);
+    text-shadow: 0 0 0.8px currentColor;
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,27 @@
+@use '../../../../public/assets/styles/all-styles.scss' as all;
+
+* {
+  background-color: #fffcf3;
+  height: auto;
+}
+
+#impressum {
+  min-height: 66.9dvh;
+  h2 {
+    margin-bottom: 16px;
+  }
+  p {
+    font-size: 16px;
+  }
+
+  .routerLink {
+    color: all.$green;
+    font-size: 20px;
+
+    &:hover {
+      filter: brightness(1);
+      text-shadow: 0 0 0.8px currentColor;
+      text-decoration: underline;
+    }
+  }
+}

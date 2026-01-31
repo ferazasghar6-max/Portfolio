@@ -38,12 +38,21 @@ section {
     display: none;
   }
 
+  .responsive-number-right {
+    width: 100%;
+    height: 40px;
+    font-size: 36px;
+    display: none;
+  }
+
   .picture {
     width: 100%;
     height: 100%;
     object-fit: contains;
     filter: grayscale(100%);
   }
+
+  // #region Frames
 
   .image-frame {
     position: relative;
@@ -56,39 +65,51 @@ section {
       position: absolute;
       display: none;
       z-index: 1;
-      // Giuliano
-      // right: 15-25px wegen frame + 25-70px wegen dem bild
-      // right: 40-95px
-      // right: clamp(-45px, 6vw, -95px);
-      right: -9%;
+      right: -40px;
       top: calc(50% - 20px);
     }
-  }
 
-  .image-frame::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border: 4px solid black;
-    display: none;
-    // pointer-events: none;
-    // Giuliano - Positionierung meines Frames
-    transform: translate(clamp(15px, 2.5vw, 25px), clamp(15px, 2.5vw, 25px));
-  }
-
-  .frame {
-    @include all.flexi($ai: center, $jc: flex-end);
-    display: none;
-
-    > img {
-      left: 35px;
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 4px solid black;
+      display: none;
+      transform: translate(15px, 15px);
     }
   }
+
+  .image-frame-right {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    .rotateAndGrow {
+      width: clamp(50px, 10vw, 70px);
+      position: absolute;
+      display: none;
+      z-index: 1;
+      left: -40px;
+      top: calc(50% - 20px);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 4px solid black;
+      display: none;
+      transform: translate(-15px, 15px);
+    }
+  }
+
+  // #endregion
 
   .left-content {
     width: 100%;
     @include all.flexi($gap: 80px);
-    padding-bottom: 80px;
+    padding-bottom: 100px;
 
     &:hover {
       img {
@@ -143,15 +164,6 @@ section {
     }
   }
 
-  .frame-right {
-    @include all.flexi($ai: center, $jc: flex-start);
-    display: none;
-
-    > img {
-      left: -35px;
-    }
-  }
-
   .right-content {
     width: 100%;
     height: fit-content;
@@ -163,22 +175,20 @@ section {
         filter: none;
       }
 
-      .frame-right {
+      .image-frame-right::after {
+        display: block;
+      }
+
+      .rotateAndGrow {
         display: flex;
       }
 
-      .portfolio-dialog {
-        display: block;
-        // border: none;
+      .portfolio-content {
+        display: flex;
       }
     }
 
     > div {
-      // width: 50%;
-      // height: clamp(100px, 40dvh, 450px);
-      // background-color: transparent;
-      // display: flex;
-      // justify-content: center;
       width: 50%;
       aspect-ratio: 4 / 3;
       max-height: clamp(100px, 40dvh, 600px);
@@ -194,17 +204,11 @@ section {
         font-size: clamp(36px, 4vw, 48px);
       }
 
-      .portfolio-dialog {
-        width: 100%;
-        height: 100%;
-        border: none;
-        display: flex;
-      }
-
       .portfolio-content {
         width: 100%;
         height: 100%;
-        display: flex;
+        border: none;
+        // display: flex; // hier ausblenden
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -242,8 +246,15 @@ section {
   section .responsive-number {
     display: flex;
   }
+  section .responsive-number-right {
+    display: flex;
+  }
+  
 
   section > .left-content > div > h3 {
+    display: none;
+  }
+  section > .right-content > div > h3 {
     display: none;
   }
 }
@@ -259,16 +270,6 @@ section {
     .portfolio-content {
       margin-top: 60px;
     }
-  }
-
-  .frame {
-    top: 10px;
-    left: 10px;
-  }
-
-  .frame-right {
-    top: 10px;
-    left: -10px;
   }
 }
 

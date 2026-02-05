@@ -20,6 +20,7 @@
           <h3>Want to discuss a new project?</h3>
           <p>Say hello! let`s discuss your ideas and make it happen</p>
         </div>
+
         <form (ngSubmit)="onSubmit(contactForm)" class="form-container" #contactForm="ngForm">
           <div>
             <label for="name" class="label">Your name</label>
@@ -33,10 +34,12 @@
               placeholder="Your name"
               required
             />
-            @if (!name.valid && name.touched) {
+
+            @if (!name.valid && (name.touched || contactForm.submitted)) {
             <p class="validation">Your name is required</p>
             }
           </div>
+
           <div>
             <label for="email" class="label">Your email</label>
             <input
@@ -50,10 +53,12 @@
               required
               pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
             />
-            @if (!email.valid && email.touched) {
-            <p class="validation">Your name is required</p>
+
+            @if (!email.valid && (email.touched || contactForm.submitted)) {
+            <p class="validation">Please enter a valid email address</p>
             }
           </div>
+
           <div>
             <label for="message" class="label">Your message</label>
             <textarea
@@ -66,11 +71,12 @@
               placeholder="Your message"
               required
             ></textarea>
-            <!-- !message.valid && message.touched && !message.disabled // für später-->
-            @if (!message.valid && message.touched) {
+
+            @if (!message.valid && (message.touched || contactForm.submitted)) {
             <p class="validation">Your message is empty</p>
             }
           </div>
+
           <div id="check-box">
             <input
               #privacyPolicy="ngModel"
@@ -81,16 +87,19 @@
               required
             />
             <div>
-              <p>
-                I`ve read the <a routerLink="privacy-policy">privacy policy</a> and agree to the
-                processing of my data as outlined
-              </p>
-              @if (!privacyPolicy.valid && privacyPolicy.touched && contactForm.submitted) {
+              <p>I`ve read the <a routerLink="privacy-policy">privacy policy</a> and agree...</p>
+
+              @if (!privacyPolicy.valid && (privacyPolicy.touched || contactForm.submitted)) {
               <p class="validation">Please accept the privacy policy</p>
               }
             </div>
           </div>
-          <input class="button-one" type="submit" value="Send Message" />
+          <input
+            class="button-one"
+            type="submit"
+            value="Send Message"
+            [class.is-valid]="contactForm.valid"
+          />
         </form>
       </div>
     </div>

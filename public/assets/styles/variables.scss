@@ -188,13 +188,15 @@ h3 {
   font-size: 24px;
   transition: width 0.3s ease;
 
-  &:hover {
+  &.is-valid:hover {
     cursor: pointer;
     width: 300px;
     font-weight: bold;
     filter: brightness(1);
   }
 }
+
+
 
 .button-two {
   width: 200px;

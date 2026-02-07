@@ -3,6 +3,8 @@
 section {
   width: 100%;
   height: fit-content;
+    padding-left: clamp(12px, 5%, 48px);
+  padding-right: clamp(12px, 5%, 48px);
 }
 
 * {
@@ -10,23 +12,29 @@ section {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: clamp(20px, 8dvw, 120px);
   color: all.$green;
   padding-bottom: 16px;
+  /* Ermöglicht die automatische Silbentrennung mit Bindestrich */
+  hyphens: auto;
+  /* Erlaubt den Umbruch, falls ein Wort zu lang ist */
+  overflow-wrap: break-word;
+  /* Verhindert, dass der Text starr in einer Zeile bleibt */
+  word-break: break-word;
 }
 
 h2 {
-  font-size: 36px;
+  font-size: clamp(24px, 5dvw, 100px);
   padding-bottom: 16px;
 }
 
 h3 {
-  font-size: 24px;
+  font-size: clamp(22px, 3dvw, 24px);
   padding-bottom: 16px;
 }
 
 h4 {
-  font-size: 20px;
+  font-size: clamp(18px, 2.5dvw, 24px);
   padding-bottom: 16px;
 }
 

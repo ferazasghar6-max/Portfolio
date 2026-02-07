@@ -49,7 +49,6 @@ section {
   }
 
   h3 {
-    font-size: 36px;
     color: all.$green;
     margin: 24px 0px;
   }
@@ -82,6 +81,23 @@ section {
     #input-area {
       width: 100%;
       @include all.flexi($fd: column);
+
+      
+      .success-box {
+        position: fixed; 
+        top: 5%;
+        padding: 12px 20px;
+        background-color: white; 
+        color: all.$green; 
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        font-weight: 500;
+        font-size: 20px;
+        z-index: 1000;
+        opacity: 0;
+        transform: translateY(-10px);
+        animation: fadeInOut 4s forwards; 
+      }
 
       #subline {
         text-align: center;
@@ -161,6 +177,7 @@ section {
 
       #check-box {
         width: 100%;
+        margin-bottom: 24px;
         @include all.flexi($jc: flex-start, $gap: 16px);
 
         p {

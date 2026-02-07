@@ -12,18 +12,18 @@
         <img src="assets/icons/arrow-up.png" alt="" />
       </a>
       <div id="headline">
-        <h2 id="say-hi">Say Hi!</h2>
+        <h2 id="say-hi">{{ 'say-hi.headline' | translate }}</h2>
       </div>
 
       <div id="input-area">
         <div id="subline">
-          <h3>Want to discuss a new project?</h3>
-          <p>Say hello! let`s discuss your ideas and make it happen</p>
+          <h3>{{ 'say-hi.subheadline-one' | translate }}</h3>
+          <p>{{ 'say-hi.subheadline-two' | translate }}</p>
         </div>
 
         <form (ngSubmit)="onSubmit(contactForm)" class="form-container" #contactForm="ngForm">
           <div>
-            <label for="name" class="label">Your name</label>
+            <label for="name" class="label">{{ 'say-hi.your-name' | translate }}</label>
             <input
               #name="ngModel"
               [(ngModel)]="contactData.name"
@@ -31,17 +31,17 @@
               id="name"
               class="input"
               type="text"
-              placeholder="Your name"
+              placeholder="{{ 'say-hi.your-name' | translate }}"
               required
             />
 
             @if (!name.valid && (name.touched || contactForm.submitted)) {
-            <p class="validation">Your name is required</p>
+            <p class="validation">{{ 'say-hi.name-required' | translate }}</p>
             }
           </div>
 
           <div>
-            <label for="email" class="label">Your email</label>
+            <label for="email" class="label">{{ 'say-hi.your-email' | translate }}</label>
             <input
               #email="ngModel"
               [(ngModel)]="contactData.email"
@@ -49,18 +49,18 @@
               id="email"
               class="input"
               type="email"
-              placeholder="Your email"
+              placeholder="{{ 'say-hi.your-email' | translate }}"
               required
               pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
             />
 
             @if (!email.valid && (email.touched || contactForm.submitted)) {
-            <p class="validation">Please enter a valid email address</p>
+            <p class="validation">{{ 'say-hi.email-required' | translate }}</p>
             }
           </div>
 
           <div>
-            <label for="message" class="label">Your message</label>
+            <label for="message" class="label">{{ 'say-hi.your-message' | translate }}</label>
             <textarea
               #message="ngModel"
               minlength="4"
@@ -68,12 +68,12 @@
               name="message"
               id="message"
               class="textarea"
-              placeholder="Your message"
+              placeholder="{{ 'say-hi.your-message' | translate }}"
               required
             ></textarea>
 
             @if (!message.valid && (message.touched || contactForm.submitted)) {
-            <p class="validation">Your message is empty</p>
+            <p class="validation">{{ 'say-hi.message-required' | translate }}</p>
             }
           </div>
 
@@ -87,20 +87,28 @@
               required
             />
             <div>
-              <p>I`ve read the <a routerLink="privacy-policy">privacy policy</a> and agree...</p>
+              <p>
+                {{ 'say-hi.privacy-policy-one' | translate }}
+                <a routerLink="privacy-policy">{{ 'say-hi.privacy-policy-two' | translate }}</a>
+                {{ 'say-hi.privacy-policy-three' | translate }}
+              </p>
 
               @if (!privacyPolicy.valid && (privacyPolicy.touched || contactForm.submitted)) {
-              <p class="validation">Please accept the privacy policy</p>
+              <p class="validation">{{ 'say-hi.privacy-policy-required' | translate }}</p>
               }
             </div>
           </div>
           <input
             class="button-one"
             type="submit"
-            value="Send Message"
+            value="{{'say-hi.send-button' | translate}}"
             [class.is-valid]="contactForm.valid"
           />
         </form>
+
+        @if (successMessage) {
+        <div class="success-box">✔ {{'say-hi.valid' | translate}}</div>
+        }
       </div>
     </div>
   </section>

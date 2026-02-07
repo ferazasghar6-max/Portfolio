@@ -14,7 +14,7 @@ section {
     @include all.flexi($ai: center, $gap: 16px);
 
     #underline {
-      width: clamp(10px, 39vw, 500px);
+      width: clamp(10px, 39vw, 700px);
       height: 3px;
     }
 
@@ -53,10 +53,6 @@ section {
 
 // #region mediaquerrys
 @include all.notebook {
-  h1 {
-    font-size: 120px;
-  }
-
     section #name > h3 {
     font-size: 36px;
   }
@@ -64,7 +60,6 @@ section {
 
 @include all.tablet {
   h1 {
-    font-size: 100px;
     padding-top: 48px;
   }
 
@@ -74,8 +69,9 @@ section {
 }
 
 @include all.mobile {
-  h1 {
-    font-size: 56px;
+
+  section #head-line{
+    width: 100%;
   }
 
   section #name > h3 {

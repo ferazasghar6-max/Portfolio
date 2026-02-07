@@ -2,11 +2,15 @@
 
 * {
   background-color: #fffcf3;
-  height: auto;
 }
 
+
 #impressum {
-  min-height: 66.9dvh;
+  width: 100%;
+  max-width: 1440px; /* Passend zu deiner .max-width Klasse */
+  flex-grow: 1;
+  min-height: 72.6dvh;
+
   h2 {
     margin-bottom: 16px;
   }
@@ -14,8 +18,11 @@
     font-size: 16px;
   }
 
-  .routerLink {
+  a {
     color: all.$green;
+  }
+
+  .routerLink {
     font-size: 20px;
 
     &:hover {

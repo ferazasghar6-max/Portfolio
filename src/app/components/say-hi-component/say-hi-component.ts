@@ -1,12 +1,14 @@
+import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-say-hi-component',
   standalone: true,
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, CommonModule, TranslatePipe],
   templateUrl: './say-hi-component.html',
   styleUrl: './say-hi-component.scss',
 })
@@ -33,14 +35,24 @@ export class SayHiComponent {
     },
   };
 
+  successMessage = false; 
+  showSuccess = () => {
+    this.successMessage = true;
+    setTimeout(() => {
+      this.successMessage = false;
+    }, 3000);
+  };
+
+  
+
   onSubmit(ngForm: NgForm) {
-    // Check if form is valid first
     if (ngForm.valid) {
       if (!this.mailTest) {
         this.http
           .post(this.post.endPoint, this.post.body(this.contactData), this.post.options)
           .subscribe({
             next: (response) => {
+              this.showSuccess();
               ngForm.resetForm();
             },
             error: (error) => {
@@ -49,13 +61,11 @@ export class SayHiComponent {
             complete: () => console.info('send post complete'),
           });
       } else {
-        // Logic for MailTest = true
-        console.log('Form is valid, but in test mode:', this.contactData);
+        this.showSuccess(); 
+        console.log(this.contactData);
         ngForm.resetForm();
       }
     } else {
-      // If form is invalid, this block executes.
-      // The HTML will now show errors because ngForm.submitted is true.
       console.log('Form is invalid');
     }
   }

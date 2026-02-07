@@ -14,7 +14,6 @@ section {
 
     > h2 {
       margin-bottom: 36px;
-      font-size: clamp(45px, 8dvw, 120px);
     }
   }
 
@@ -24,13 +23,13 @@ section {
 
   #references {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     align-items: stretch;
     gap: 16px;
   }
 
   .reference {
-    min-height: 450px;
+    min-height: 380px;
     border: 4px solid black;
     margin-top: 24px;
     padding: 16px;

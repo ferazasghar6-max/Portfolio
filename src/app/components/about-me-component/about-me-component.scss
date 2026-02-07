@@ -6,7 +6,7 @@ section {
   box-sizing: border-box;
   max-width: 1440px;
 
-  #content-wrapper{
+  #content-wrapper {
     height: 400px;
   }
 
@@ -66,8 +66,6 @@ section {
         }
       }
     }
-
-
   }
 }
 
@@ -96,8 +94,9 @@ section {
 }
 
 @include all.tablet {
-  h2 {
+  section >h2 {
     text-align: left;
+    padding-bottom: 24px;
   }
 
   #content-wraper {

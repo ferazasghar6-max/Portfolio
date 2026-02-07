@@ -18,6 +18,11 @@ section {
     @include all.flexi($fd: column, $jc: center);
     text-align: center;
     margin-bottom: 48px;
+    margin-top: 16px;
+
+    h2{
+      margin-bottom: 16px;
+    }
   }
 
   .content {

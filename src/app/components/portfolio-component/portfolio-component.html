@@ -8,8 +8,8 @@
 
     <div class="headline">
       <h2>Portfolio</h2>
-      <p>{{'portfolio.description-one' | translate}}</p>
-      <p>{{'portfolio.description-two' | translate}}</p>
+      <p>{{ 'portfolio.description-one' | translate }}</p>
+      <p>{{ 'portfolio.description-two' | translate }}</p>
     </div>
 
     <div class="left-content">
@@ -27,7 +27,7 @@
           <h3 class="project">Join</h3>
           <p class="build-with">Angular | TypeScript | HTML | CSS | Firebase</p>
           <p>
-            {{'portfolio.join' | translate}}
+            {{ 'portfolio.join' | translate }}
           </p>
           <div class="buttons">
             <a class="button-two" href="" target="_blank">GitHub</a>
@@ -52,15 +52,24 @@
           <h3 class="project">El-Pollo-Loco</h3>
           <p class="build-with">HTML | CSS | JavaScript</p>
           <p>
-            {{'portfolio.el-pollo-loco' | translate}}
+            {{ 'portfolio.el-pollo-loco' | translate }}
           </p>
           <div class="buttons">
-            <a class="button-two" href="https://github.com/ferazasghar6-max/El-Pollo-Loco.git" target="_blank">GitHub</a>
-            <a class="button-two" href="" target="_blank">Live</a>
+            <a
+              class="button-two"
+              href="https://github.com/ferazasghar6-max/El-Pollo-Loco.git"
+              target="_blank"
+              >GitHub</a
+            >
+            <a
+              class="button-two"
+              href="https://ferazasghar6-max.github.io/El-Pollo-Loco/"
+              target="_blank"
+              >Live</a
+            >
           </div>
         </dialog>
       </div>
-
     </div>
 
     <div class="left-content">
@@ -78,7 +87,7 @@
           <h3 class="project">Pokédex</h3>
           <p class="build-with">HTML | CSS | REST-API | JavaScript</p>
           <p>
-            {{'portfolio.pokedex' | translate}}
+            {{ 'portfolio.pokedex' | translate }}
           </p>
           <div class="buttons">
             <a
@@ -87,11 +96,12 @@
               target="_blank"
               >GitHub</a
             >
-            <a class="button-two" href="" target="_blank">Live</a>
+            <a class="button-two" href="https://ferazasghar6-max.github.io/Pokedex/" target="_blank"
+              >Live</a
+            >
           </div>
         </dialog>
       </div>
     </div>
   </section>
 </main>
-

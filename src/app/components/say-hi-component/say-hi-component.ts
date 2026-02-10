@@ -22,10 +22,6 @@ constructor(private router: Router) {}
     });
   }
 
-
-
-
-
   http = inject(HttpClient);
 
   contactData = {
@@ -75,7 +71,6 @@ constructor(private router: Router) {}
           });
       } else {
         this.showSuccess(); 
-        console.log(this.contactData);
         ngForm.resetForm();
       }
     } else {

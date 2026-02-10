@@ -10,27 +10,47 @@
         <button (click)="useLanguage('en')">EN</button>
       </div>
 
-      <section id="burger-menu">
-        <img (click)="toggleDialog()" src="assets/icons/burger-menu.png" alt="Burger Menü Icon" />
-      </section>
+
+
       
+
+      <section id="burger-menu">
+        <!-- <img (click)="toggleDialog()" src="assets/icons/burger-menu.png" alt="Burger Menü Icon" /> -->
+        <button
+          class="navBtn4"
+          [class.is-open]="isOpen"
+          [class.is-closed]="!isOpen"
+          (click)="navClick()"
+        >
+          <div class="icon-container"></div>
+        </button>
+      </section>
+
+
+
+
+
+
+
+
+
+
     </nav>
 
     <dialog id="dialog-menu">
       <div id="dialog-content">
         <ul>
           <li>
-            <a (click)="toggleDialog()" href="#about-me">{{'header.about-me' | translate}}</a>
+            <a (click)="toggleDialog()" href="#about-me">{{ 'header.about-me' | translate }}</a>
           </li>
           <li>
-            <a (click)="toggleDialog()" href="#my-skills">{{'header.my-skills' | translate}}</a>
+            <a (click)="toggleDialog()" href="#my-skills">{{ 'header.my-skills' | translate }}</a>
           </li>
           <li>
-            <a (click)="toggleDialog()" href="#portfolio">{{'header.portfolio' | translate}}</a>
+            <a (click)="toggleDialog()" href="#portfolio">{{ 'header.portfolio' | translate }}</a>
           </li>
         </ul>
       </div>
     </dialog>
   </div>
 </main>
-

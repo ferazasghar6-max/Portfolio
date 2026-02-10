@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -11,4 +12,9 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 export class LegalNoticeComponent {
 
+  constructor(private location: Location) {}
+
+  goBack() {
+    this.location.back(); // geht eine Seite zurück, scrollt automatisch dorthin
+  }
 }

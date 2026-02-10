@@ -9,7 +9,7 @@
   <section class="padding">
     <div id="say-hi-wraper">
       <a href="#above-the-fold">
-        <img src="assets/icons/arrow-up.png" alt="" />
+        <img class="arrow-up" src="assets/icons/arrow-up.png" alt="" />
       </a>
       <div id="headline">
         <h2 id="say-hi">{{ 'say-hi.headline' | translate }}</h2>
@@ -89,7 +89,7 @@
             <div>
               <p>
                 {{ 'say-hi.privacy-policy-one' | translate }}
-                <a routerLink="privacy-policy">{{ 'say-hi.privacy-policy-two' | translate }}</a>
+                <a (click)="goToPrivacyPolicy()" routerLink="privacy-policy">{{ 'say-hi.privacy-policy-two' | translate }}</a>
                 {{ 'say-hi.privacy-policy-three' | translate }}
               </p>
 

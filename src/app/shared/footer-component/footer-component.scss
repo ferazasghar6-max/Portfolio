@@ -12,6 +12,16 @@
   background-color: transparent;
 }
 
+.slide-underline {
+  font-size: 20px;
+  font-weight: lighter;
+  &:hover {
+    filter: brightness(1);
+    text-shadow: 0 0 2px currentColor;
+    transform: translateX(5px);
+  }
+}
+
 #footer {
   width: 100%;
   height: 20dvh;
@@ -29,10 +39,6 @@
     width: 100%;
     @include all.flexi($jc: flex-end);
     padding-bottom: 16px;
-
-    a {
-      font-size: 20px;
-    }
   }
 
   #social-media {

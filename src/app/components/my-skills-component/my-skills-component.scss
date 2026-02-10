@@ -36,16 +36,18 @@ section {
       text-align: center;
       margin: clamp(8px, 4vw, 80px);
       perspective: 600px;
-      // overflow: hidden;
 
       &:hover {
         color: all.$green;
       }
 
+      // .overflow-hidden {
+      // overflow: hidden;
       > img {
         width: clamp(30px, 8vw, 100px);
         height: clamp(30px, 8vw, 100px);
       }
+      // }
 
       > p {
         z-index: 10;
@@ -86,12 +88,13 @@ section {
         &:hover {
           filter: brightness(1);
           text-shadow: 0 0 0.8px currentColor;
-          text-decoration: underline;
         }
       }
     }
   }
 }
+
+
 
 //#region Mediaquerries
 

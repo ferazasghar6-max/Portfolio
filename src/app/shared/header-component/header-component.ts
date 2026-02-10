@@ -8,46 +8,36 @@ import { TranslatePipe, TranslateDirective, TranslateService } from '@ngx-transl
   styleUrl: './header-component.scss',
 })
 export class HeaderComponent {
+  isOpen = false;
 
+  navClick(): void {
+    this.isOpen = !this.isOpen;
+    this.toggleDialog();
+  }
 
-  // toggleDialog() {
-  //   const dialogRef = document.getElementById('dialog-menu') as HTMLDialogElement;
-  //   const languageDiv = document.getElementById('language');
-  //   const navRef = document.getElementById('nav-element') as HTMLElement;
-  //   if (dialogRef.open) {
-  //     dialogRef.close();
-  //     if (window.innerWidth <= 640 && languageDiv) {
-  //      languageDiv.style.display = 'none';
-  //      navRef.style.justifyContent = "space-between"
-  //    }
-  //   } else {
-  //     dialogRef.show();
-  //     if (window.innerWidth <= 640 && languageDiv) {
-  //      languageDiv.style.display = 'flex';
-  //    }
-  //   }
-  // }
-
-toggleDialog() {
-  const dialogRef = document.getElementById('dialog-menu') as HTMLDialogElement;
-  const languageDiv = document.getElementById('language');
-  const navRef = document.getElementById('nav-element') as HTMLElement;
-
-  if (dialogRef.open) {
-    dialogRef.close();
-    if (languageDiv) {
-      // WICHTIG: Wir setzen den Style zurück statt auf 'none'.
-      // Dadurch greift bei > 640px wieder dein CSS: display: flex.
-      languageDiv.style.display = ''; 
-      // navRef.style.justifyContent = ""; // Setzt auch das Nav-Layout zurück
-    }
-  } else {
-    dialogRef.show();
-    if (window.innerWidth <= 640 && languageDiv) {
-      languageDiv.style.display = 'flex';
+  toggleDialog() {
+    const dialogRef = document.getElementById('dialog-menu') as HTMLDialogElement;
+    const languageDiv = document.getElementById('language');
+    const bodyRef = document.getElementById('body');
+    if (dialogRef.open) {
+      dialogRef.close();
+      this.isOpen = false;
+      if (languageDiv) {
+        languageDiv.style.display = '';
+      }
+      if (bodyRef) {
+        bodyRef.style.overflow = '';
+      }
+    } else {
+      dialogRef.show();
+      if (bodyRef) {
+        bodyRef.style.overflow = 'hidden';
+      }
+      if (window.innerWidth <= 640 && languageDiv) {
+        languageDiv.style.display = 'flex';
+      }
     }
   }
-}
 
   private translate = inject(TranslateService);
 
@@ -55,4 +45,3 @@ toggleDialog() {
     this.translate.use(language);
   }
 }
-

@@ -20,7 +20,7 @@ section {
     margin-bottom: 48px;
     margin-top: 16px;
 
-    h2{
+    h2 {
       margin-bottom: 16px;
     }
   }
@@ -161,6 +161,10 @@ section {
         gap: 24px;
         margin-top: 40px;
         border: none;
+        animation-name: flyLeftToRight;
+        animation-duration: 0.7s; /* Etwas verlängert für einen schöneren Verlauf */
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
 
         p {
           font-size: clamp(16px, 1.8vw, 24px);
@@ -220,6 +224,10 @@ section {
         text-align: center;
         gap: 24px;
         margin-top: 40px;
+        animation-name: flyRightToLeft;
+        animation-duration: 0.7s; /* Dauer des Fluges */
+        animation-timing-function: ease-out; /* sanfter Flug */
+        animation-fill-mode: forwards; /* bleibt am Endpunkt */
 
         p {
           font-size: clamp(16px, 1.8vw, 24px);
@@ -254,13 +262,22 @@ section {
   section .responsive-number-right {
     display: flex;
   }
-  
 
   section > .left-content > div > h3 {
     display: none;
   }
   section > .right-content > div > h3 {
     display: none;
+  }
+  section > .left-content > div {
+    .portfolio-content {
+      animation-name: flyTopToBottom;
+    }
+  }
+  section > .right-content > div {
+    .portfolio-content {
+      animation-name: flyTopToBottom;
+    }
   }
 }
 

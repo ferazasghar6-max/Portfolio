@@ -4,6 +4,7 @@ import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-say-hi-component',
@@ -13,6 +14,18 @@ import { TranslatePipe } from '@ngx-translate/core';
   styleUrl: './say-hi-component.scss',
 })
 export class SayHiComponent {
+
+constructor(private router: Router) {}
+  goToPrivacyPolicy() {
+    this.router.navigate(['/privacy-policy']).then(() => {
+      window.scrollTo(0, 0); // nur beim ersten Laden oben
+    });
+  }
+
+
+
+
+
   http = inject(HttpClient);
 
   contactData = {

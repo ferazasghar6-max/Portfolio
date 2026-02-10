@@ -9,5 +9,12 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 
 export class MySkillsComponent {
-
+  isAnimAngular = false;
+  isAnimTs = false;
+  isAnimJs = false;
+  isAnimHtml = false;
+  isAnimCss = false;
+  isAnimGit = false;
+  isAnimRest = false;
+  isAnimEdu = false;
 }

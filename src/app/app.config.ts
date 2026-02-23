@@ -20,7 +20,8 @@ export const appConfig: ApplicationConfig = {
       lang: 'en',
       fallbackLang: 'en',
       loader: provideTranslateHttpLoader({
-        prefix: '/i18n/',
+        // prefix: '/i18n/',
+        prefix: '/angular-projects/portfolio/i18n/',
         suffix: '.json',
       }),
     }),

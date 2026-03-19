@@ -42,10 +42,10 @@ $green: #00bc8f;
 }
 
 .moveUp {
-  transition: transform 0.4s ease-in-out; 
-  display: inline-block; 
+  transition: transform 0.4s ease-in-out;
+  display: inline-block;
 
-  &:hover{
+  &:hover {
     transform: translateY(-15px);
   }
 }
@@ -84,7 +84,7 @@ $green: #00bc8f;
 .loopImage {
   transform-style: preserve-3d;
   display: block;
-  transition: transform 0.4s; 
+  transition: transform 0.4s;
 }
 
 /* Diese Klasse wird von Angular gesteuert */
@@ -112,11 +112,11 @@ $green: #00bc8f;
 
 @keyframes flyRightToLeft {
   0% {
-    transform: translateX(200px); 
+    transform: translateX(200px);
     opacity: 0; /* Komplett durchsichtig am Start */
   }
   100% {
-    transform: translateX(0); 
+    transform: translateX(0);
     opacity: 1; /* Vollständig sichtbar am Ziel */
   }
 }
@@ -124,22 +124,22 @@ $green: #00bc8f;
 @keyframes flyLeftToRight {
   0% {
     transform: translateX(-200px);
-    opacity: 0; 
+    opacity: 0;
   }
   100% {
     transform: translateX(0);
-    opacity: 1; 
+    opacity: 1;
   }
 }
 
 @keyframes flyTopToBottom {
   0% {
     transform: translateY(-130px); /* Startet 130px weiter oben */
-    opacity: 0;                   /* Unsichtbar */
+    opacity: 0; /* Unsichtbar */
   }
   100% {
-    transform: translateY(0);      /* Endet an der Originalposition */
-    opacity: 1;                   /* Voll sichtbar */
+    transform: translateY(0); /* Endet an der Originalposition */
+    opacity: 1; /* Voll sichtbar */
   }
 }
 
@@ -164,12 +164,12 @@ $green: #00bc8f;
 
 @keyframes slideUnderline {
   0% {
-    transform: translateX(-40px); 
-    opacity: 0;                   
+    transform: translateX(-40px);
+    opacity: 0;
   }
   100% {
-    transform: translateX(0);      
-    opacity: 1;                   
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 .slide-underline {
@@ -177,7 +177,6 @@ $green: #00bc8f;
   display: inline-block;
   text-decoration: none;
   font-weight: lighter;
- 
 
   &::after {
     content: '';
@@ -199,26 +198,25 @@ $green: #00bc8f;
 
 @keyframes stretchArrow {
   0% {
-    transform: scaleY(1); 
+    transform: scaleY(1);
   }
   50% {
-    transform: scaleY(1.5); 
+    transform: scaleY(1.5);
   }
   100% {
-    transform: scaleY(1); 
+    transform: scaleY(1);
   }
 }
 
 .arrow-up {
-  display: inline-block; 
+  display: inline-block;
   transform-origin: bottom center;
-  transition: transform 0.3s ease; 
+  transition: transform 0.3s ease;
 
-  &:hover{
+  &:hover {
     transform: scaleY(1.4);
   }
 }
-
 
 //#endregion
 
@@ -251,11 +249,11 @@ $green: #00bc8f;
 }
 
 #say-hi {
-  scroll-margin-top: 120px;
+  scroll-margin-top: 140px;
 }
 
 #my-skills {
-  scroll-margin-top: -110px;
+  scroll-margin-top: 120px;
 }
 
 #about-me {
@@ -266,7 +264,7 @@ $green: #00bc8f;
   scroll-margin-top: -110px;
 }
 
-.no-scroll{
+.no-scroll {
   overflow: hidden;
 }
 

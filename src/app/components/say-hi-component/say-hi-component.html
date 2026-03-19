@@ -21,93 +21,126 @@
           <p>{{ 'say-hi.subheadline-two' | translate }}</p>
         </div>
 
-        <form (ngSubmit)="onSubmit(contactForm)" class="form-container" #contactForm="ngForm">
+        <form [formGroup]="userForm" (ngSubmit)="formSubmit()" class="form-container">
           <div>
-            <label for="name" class="label">{{ 'say-hi.your-name' | translate }}</label>
-            <input
-              #name="ngModel"
-              [(ngModel)]="contactData.name"
-              name="name"
-              id="name"
-              class="input"
-              type="text"
-              placeholder="{{ 'say-hi.your-name' | translate }}"
-              required
-            />
-
-            @if (!name.valid && (name.touched || contactForm.submitted)) {
-            <p class="validation">{{ 'say-hi.name-required' | translate }}</p>
-            }
+            <div class="input-wrapper">
+              @if (userForm.get('name')?.valid && userForm.get('name')?.touched) {
+                <img class="validation-icon" src="assets/icons/valid.png" alt="valid" />
+              } @else if (userForm.get('name')?.invalid && userForm.get('name')?.touched) {
+                <img class="validation-icon" src="assets/icons/invalid.png" alt="invalid" />
+              }
+              <input
+                formControlName="name"
+                name="name"
+                id="name"
+                class="input"
+                type="text"
+                placeholder="{{ 'say-hi.your-name' | translate }}"
+              />
+              <label for="name" class="label">{{ 'say-hi.your-name' | translate }}</label>
+            </div>
+            <p
+              class="error-message"
+              [class.invalid]="!userForm.get('name')?.valid && userForm.get('name')?.touched"
+            >
+              {{ 'say-hi.name-required' | translate }}
+            </p>
           </div>
 
           <div>
-            <label for="email" class="label">{{ 'say-hi.your-email' | translate }}</label>
-            <input
-              #email="ngModel"
-              [(ngModel)]="contactData.email"
-              name="email"
-              id="email"
-              class="input"
-              type="email"
-              placeholder="{{ 'say-hi.your-email' | translate }}"
-              required
-              pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
-            />
-
-            @if (!email.valid && (email.touched || contactForm.submitted)) {
-            <p class="validation">{{ 'say-hi.email-required' | translate }}</p>
-            }
+            <div class="input-wrapper">
+              @if (userForm.get('email')?.valid && userForm.get('email')?.touched) {
+                <img class="validation-icon" src="assets/icons/valid.png" alt="valid" />
+              } @else if (userForm.get('email')?.invalid && userForm.get('email')?.touched) {
+                <img class="validation-icon" src="assets/icons/invalid.png" alt="invalid" />
+              }
+              <input
+                formControlName="email"
+                name="email"
+                id="email"
+                class="input"
+                type="email"
+                placeholder="{{ 'say-hi.your-email' | translate }}"
+              />
+              <label for="email" class="label">{{ 'say-hi.your-email' | translate }}</label>
+            </div>
+            <p
+              class="error-message"
+              [class.invalid]="!userForm.get('email')?.valid && userForm.get('email')?.touched"
+            >
+              {{ 'say-hi.email-required' | translate }}
+            </p>
           </div>
 
           <div>
-            <label for="message" class="label">{{ 'say-hi.your-message' | translate }}</label>
-            <textarea
-              #message="ngModel"
-              minlength="4"
-              [(ngModel)]="contactData.message"
-              name="message"
-              id="message"
-              class="textarea"
-              placeholder="{{ 'say-hi.your-message' | translate }}"
-              required
-            ></textarea>
-
-            @if (!message.valid && (message.touched || contactForm.submitted)) {
-            <p class="validation">{{ 'say-hi.message-required' | translate }}</p>
-            }
+            <div class="input-wrapper">
+              @if (userForm.get('message')?.valid && userForm.get('message')?.touched) {
+                <img
+                  class="validation-icon validation-icon--text"
+                  src="assets/icons/valid.png"
+                  alt="valid"
+                />
+              } @else if (userForm.get('message')?.invalid && userForm.get('message')?.touched) {
+                <img
+                  class="validation-icon validation-icon--text"
+                  src="assets/icons/invalid.png"
+                  alt="invalid"
+                />
+              }
+              <textarea
+                formControlName="message"
+                minlength="4"
+                name="message"
+                id="message"
+                class="textarea"
+                placeholder="{{ 'say-hi.your-message' | translate }}"
+              ></textarea>
+              <label for="message" class="label">{{ 'say-hi.your-message' | translate }}</label>
+            </div>
+            <p
+              class="error-message"
+              [class.invalid]="!userForm.get('message')?.valid && userForm.get('message')?.touched"
+            >
+              {{ 'say-hi.message-required' | translate }}
+            </p>
           </div>
 
           <div id="check-box">
             <input
-              #privacyPolicy="ngModel"
-              [(ngModel)]="contactData.privacyPolicy"
+              formControlName="privacyPolicy"
               name="privacyPolicy"
               id="privacyPolicy"
               type="checkbox"
-              required
             />
             <div>
               <p>
                 {{ 'say-hi.privacy-policy-one' | translate }}
-                <a (click)="goToPrivacyPolicy()" routerLink="privacy-policy">{{ 'say-hi.privacy-policy-two' | translate }}</a>
+                <a (click)="goToPrivacyPolicy()" routerLink="privacy-policy">{{
+                  'say-hi.privacy-policy-two' | translate
+                }}</a>
                 {{ 'say-hi.privacy-policy-three' | translate }}
               </p>
 
-              @if (!privacyPolicy.valid && (privacyPolicy.touched || contactForm.submitted)) {
-              <p class="validation">{{ 'say-hi.privacy-policy-required' | translate }}</p>
-              }
+            <p
+              class="error-message"
+              [class.invalid]="!userForm.get('privacyPolicy')?.valid && userForm.get('privacyPolicy')?.touched"
+            >
+              {{ 'say-hi.privacy-policy-required' | translate }}
+            </p>
             </div>
           </div>
-          <input
-            class="button-one"
-            type="submit"
-            value="{{'say-hi.send-button' | translate}}"
-            [class.is-valid]="contactForm.valid"
-          />
+          <div id="check-box-wrapper" (click)="handleDisabledClick()">
+            <input
+              class="button-one"
+              type="submit"
+              value="{{ 'say-hi.send-button' | translate }}"
+              [class.is-valid]="userForm.valid"
+            />
+          </div>
         </form>
 
         @if (successMessage) {
-        <div class="success-box">✔ {{'say-hi.valid' | translate}}</div>
+          <div class="success-box">✔ {{ 'say-hi.valid' | translate }}</div>
         }
       </div>
     </div>

@@ -33,7 +33,7 @@ section {
       // height: inherit; // CHANGED: entfernt, passt sich jetzt flex/stretch an
     }
 
-    #about-me {
+    #about-me-description {
       @include all.flexi($fd: column, $jc: flex-start);
 
       #content {

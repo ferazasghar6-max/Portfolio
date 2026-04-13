@@ -160,10 +160,7 @@ section {
         gap: 24px;
         margin-top: 40px;
         border: none;
-        animation-name: flyLeftToRight;
-        animation-duration: 0.7s; /* Etwas verlängert für einen schöneren Verlauf */
-        animation-timing-function: ease-out;
-        animation-fill-mode: forwards;
+        animation: flyLeftToRight 0.7s ease-out forwards;
 
         p {
           font-size: clamp(16px, 1.8vw, 24px);
@@ -223,10 +220,7 @@ section {
         text-align: center;
         gap: 24px;
         margin-top: 40px;
-        animation-name: flyRightToLeft;
-        animation-duration: 0.7s; /* Dauer des Fluges */
-        animation-timing-function: ease-out; /* sanfter Flug */
-        animation-fill-mode: forwards; /* bleibt am Endpunkt */
+        animation: flyRightToLeft 0.7s ease-out forwards;
 
         p {
           font-size: clamp(16px, 1.8vw, 24px);
@@ -277,6 +271,8 @@ section {
   section > .left-content > div {
     .portfolio-content {
       animation-name: flyTopToBottom;
+      animation-timeline: view();
+      animation-range: entry 20% cover;
     }
   }
   section > .right-content > div {

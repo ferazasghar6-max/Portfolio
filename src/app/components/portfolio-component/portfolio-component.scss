@@ -6,7 +6,6 @@ section {
   background: inherit;
   gap: 48px;
   max-width: 1440px;
-  overflow: hidden;
 
   .build-with {
     color: all.$green;
@@ -53,8 +52,8 @@ section {
   .picture {
     width: 100%;
     height: 100%;
-    object-fit: contains;
     filter: grayscale(100%);
+    z-index: 5;
   }
 
   // #region Frames
@@ -68,8 +67,8 @@ section {
     .rotateAndGrow {
       width: clamp(50px, 10vw, 70px);
       position: absolute;
-      display: none;
-      z-index: 1;
+      opacity: 0;
+      z-index: 10;
       right: -40px;
       top: calc(50% - 20px);
     }
@@ -79,8 +78,9 @@ section {
       position: absolute;
       inset: 0;
       border: 4px solid black;
-      display: none;
+      opacity: 0;
       transform: translate(15px, 15px);
+      z-index: 5;
     }
   }
 
@@ -93,8 +93,8 @@ section {
     .rotateAndGrow {
       width: clamp(50px, 10vw, 70px);
       position: absolute;
-      display: none;
-      z-index: 1;
+      opacity: 0;
+      z-index: 10;
       left: -40px;
       top: calc(50% - 20px);
     }
@@ -104,7 +104,8 @@ section {
       position: absolute;
       inset: 0;
       border: 4px solid black;
-      display: none;
+      z-index: 5;
+      opacity: 0;
       transform: translate(-15px, 15px);
     }
   }
@@ -117,52 +118,47 @@ section {
     padding-bottom: 100px;
 
     @media (min-width: 1025px) {
-      @media (hover: hover) {
-        &:hover {
-          img {
-            filter: none;
-          }
+      &:hover {
+        .picture {
+          animation: imageReveal 0.7s ease-out forwards;
+        }
+        .portfolio-content {
+          animation: flyLeftToRight 0.7s ease-out forwards;
+        }
 
-          .portfolio-content {
-            display: flex;
-            animation: flyLeftToRight 0.7s ease-out forwards;
-          }
+        .image-frame::after {
+          animation: frameReveal 0.7s ease-out forwards;
+        }
 
-          .image-frame::after {
-            display: block;
-          }
-
-          .rotateAndGrow {
-            display: flex;
-          }
+        .rotateAndGrow {
+          animation: rotateAndGrow 0.5s ease-in-out 0s 1 forwards;
         }
       }
     }
 
-    @media (max-width: 1024px){
-          img {
-            filter: none;
-          }
+    // Hover aussetzen und scroll nutzen
+    @media (max-width: 1024px) {
+      .portfolio-content {
+        animation: flyTopToBottom both;
+        animation-timeline: view(70% 20%);
+      }
 
-          .portfolio-content {
-            display: flex;
-            animation: flyTopToBottom both;
-            animation-timeline: view(50% 20%);
-            animation-range: entry 50% cover 10%;
-          }
+      .rotateAndGrow {
+        opacity: 1;
+        animation: rotateAndGrow both;
+        animation-timeline: view(10% 40%);
+      }
 
-          .image-frame::after {
-            display: block;
-          }
+      .picture {
+        animation: imageReveal both;
+        animation-timeline: view(10% 60%);
+      }
 
-          .rotateAndGrow {
-            display: flex;
-            animation-timeline: view();
-            animation-range: entry 50% cover 10%;
-          }
-        
+      .image-frame::after {
+        animation: frameReveal both;
+        animation-timeline: view(0% 60%);
+      }
     }
-    
 
     > div {
       width: 50%;
@@ -183,6 +179,7 @@ section {
       .portfolio-content {
         width: 100%;
         height: 100%;
+        display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
@@ -190,7 +187,7 @@ section {
         gap: 24px;
         margin-top: 40px;
         border: none;
-        // animation: flyLeftToRight 0.7s ease-out forwards;
+        opacity: 0;
 
         p {
           font-size: clamp(16px, 1.8vw, 24px);
@@ -205,21 +202,46 @@ section {
     @include all.flexi($fd: row-reverse, $gap: 80px);
     margin-bottom: 80px;
 
-    &:hover {
-      img {
-        filter: none;
-      }
+    @media (min-width: 1025px) {
+      &:hover {
+        .picture {
+          animation: imageReveal 0.7s ease-out forwards;
+        }
+        .portfolio-content {
+          animation: flyRightToLeft 0.7s ease-out forwards;
+        }
 
-      .image-frame-right::after {
-        display: block;
+        .image-frame-right::after {
+          animation: frameReveal 0.7s ease-out forwards;
+        }
+
+        .rotateAndGrow {
+          animation: rotateAndGrow 0.5s ease-in-out 0s 1 forwards;
+        }
+      }
+    }
+
+    // Hover aussetzen und scroll nutzen
+    @media (max-width: 1024px) {
+      .portfolio-content {
+        animation: flyTopToBottom both;
+        animation-timeline: view(70% 20%);
       }
 
       .rotateAndGrow {
-        display: flex;
+        opacity: 1;
+        animation: rotateAndGrow both;
+        animation-timeline: view(10% 40%);
       }
 
-      .portfolio-content {
-        display: flex;
+      .picture {
+        animation: imageReveal both;
+        animation-timeline: view(10% 60%);
+      }
+
+      .image-frame-right::after {
+        animation: frameReveal both;
+        animation-timeline: view(0% 60%);
       }
     }
 
@@ -243,14 +265,14 @@ section {
         width: 100%;
         height: 100%;
         border: none;
-        // display: flex;
+        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
         gap: 24px;
         margin-top: 40px;
-        animation: flyRightToLeft 0.7s ease-out forwards;
+        opacity: 0;
 
         p {
           font-size: clamp(16px, 1.8vw, 24px);
@@ -298,16 +320,6 @@ section {
   section > .right-content > div > h3 {
     display: none;
   }
-  // section > .left-content > div {
-  //   .portfolio-content {
-  //     animation: flyTopToBottom both 0.7s ease-out forwards;
-  //   }
-  // }
-  // section > .right-content > div {
-  //   .portfolio-content {
-  //     animation: flyTopToBottom 0.7s ease-out forwards;
-  //   }
-  // }
 }
 
 @include all.tablet {
@@ -331,3 +343,4 @@ section {
 }
 
 //#endregion
+

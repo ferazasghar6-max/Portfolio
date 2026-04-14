@@ -94,30 +94,23 @@ $green: #00bc8f;
 
 @keyframes rotateAndGrow {
   0% {
-    transform: rotate(0deg) scale(1);
+    opacity: 0;
+    transform: rotate(0deg) scale(0.8);
   }
   100% {
+    opacity: 1;
     transform: rotate(-120deg) scale(1.2);
   }
-}
-
-.rotateAndGrow {
-  transform-style: preserve-3d;
-  animation-name: rotateAndGrow;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
 }
 
 @keyframes flyRightToLeft {
   0% {
     transform: translateX(200px);
-    opacity: 0; /* Komplett durchsichtig am Start */
+    opacity: 0; 
   }
   100% {
     transform: translateX(0);
-    opacity: 1; /* Vollständig sichtbar am Ziel */
+    opacity: 1; 
   }
 }
 
@@ -132,14 +125,32 @@ $green: #00bc8f;
   }
 }
 
+@keyframes frameReveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes imageReveal {
+  from{
+    filter: grayscale(100%);
+  }
+  to{
+    filter: none;
+  }
+}
+
 @keyframes flyTopToBottom {
   0% {
-    transform: translateY(-130px); /* Startet 130px weiter oben */
-    opacity: 0; /* Unsichtbar */
+    transform: translateY(-130px); 
+    opacity: 0; 
   }
   100% {
-    transform: translateY(0); /* Endet an der Originalposition */
-    opacity: 1; /* Voll sichtbar */
+    transform: translateY(0); 
+    opacity: 1; 
   }
 }
 
@@ -172,6 +183,7 @@ $green: #00bc8f;
     opacity: 1;
   }
 }
+
 .slide-underline {
   position: relative;
   display: inline-block;

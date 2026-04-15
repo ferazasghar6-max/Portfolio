@@ -15,6 +15,6 @@ export class LegalNoticeComponent {
   constructor(private location: Location) {}
 
   goBack() {
-    this.location.back(); // geht eine Seite zurück, scrollt automatisch dorthin
+    this.location.back(); 
   }
 }

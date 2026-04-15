@@ -1,8 +1,5 @@
 @use '../../../../public/assets/styles/all-styles.scss' as all;
 
-* {
-  background-color: #fffcf3;
-}
 
 section {
   width: 100%;
@@ -23,7 +20,7 @@ section {
 }
 
 h2 {
-  font-size: clamp(40px, 8dvw, 90px);
+  font-size: clamp(38px, 8dvw, 90px);
   padding-bottom: 16px;
   overflow-wrap: break-word;
 }

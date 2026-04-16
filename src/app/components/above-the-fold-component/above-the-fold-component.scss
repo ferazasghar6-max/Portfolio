@@ -36,10 +36,14 @@ section {
     }
 
     #mail {
-      left: -100px;
-      width: 50px;
+      width: 100px;
+      height: 100%;
+      text-wrap: nowrap;
+      @include all.flexi();
 
       > a {
+        position: absolute;
+        right: -8px;
         display: inline-block;
         transform: rotate(-90deg);
       }

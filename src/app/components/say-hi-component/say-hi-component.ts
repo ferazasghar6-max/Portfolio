@@ -57,12 +57,21 @@ export class SayHiComponent {
   });
 
   /**
-   * Submits the form if it is valid, shows a success message, and resets the fields.
+   * Submits the form data to the server via HTTP POST if the form is valid.
+   * On success, it displays a success message and resets the form fields.
    */
   formSubmit() {
     if (this.userForm.valid) {
-      this.showSuccess();
-      this.userForm.reset();
+      this.http.post('https://f-asghar.de/sendMail.php', this.userForm.value).subscribe({
+        next: (response) => {
+          console.log('Server Antwort:', response);
+          this.showSuccess();
+          this.userForm.reset();
+        },
+        error: (error) => {
+          console.error('Fehler beim Senden:', error);
+        },
+      });
     }
   }
 

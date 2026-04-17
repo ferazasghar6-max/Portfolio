@@ -295,9 +295,9 @@ p {
 }
 
 h1 {
-  font-size: clamp(33px, 8dvw, 140px);
+  font-size: clamp(33px, 10vmin, 140px);
   font-family: 'Syne Variable', sans-serif;
-  font-weight: 800; /* ExtraBold */
+  font-weight: 800; 
 }
 
 h2 {
